@@ -1,7 +1,7 @@
-import { GET_MESSAGE } from '../actions/types.js';
+import { GET_MESSAGE, DELETE_MESSAGE, ADD_MESSAGE } from '../actions/types.js';
 
 const initialState = {
-  messages: []
+  message: []
 }
 
 export default function (state = initialState, action) {
@@ -9,7 +9,17 @@ export default function (state = initialState, action) {
     case GET_MESSAGE:
       return {
         ...state,
-        leads: action.payload
+        message: action.payload
+      }
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        message: state.message.filter(message => message.id !== action.payload)
+      };
+    case ADD_MESSAGE:
+      return {
+        ...state,
+        message: [...state.message, action.payload]
       }
     default:
       return state;

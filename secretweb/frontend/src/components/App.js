@@ -10,7 +10,7 @@ import store from '../store';
 class App extends Component {
   render() {
     return (
-      <Provider>
+      <Provider store={store}>
         <Fragment>
           <Header />
           <div className="container">

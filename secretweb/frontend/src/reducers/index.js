@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import messageboard from './messageboard'
+import message from './message'
 
 export default combineReducers({
-  messageboard
+  message
 });

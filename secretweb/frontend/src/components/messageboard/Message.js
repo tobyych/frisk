@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getMessage } from '../../actions/message'
-import messageboard from '../../reducers/messageboard';
+import { getMessage, deleteMessage } from '../../actions/message'
+import message from '../../reducers/message';
 
 export class Message extends Component {
   static propTypes = {

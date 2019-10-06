@@ -5,73 +5,73 @@ import { addMessage } from '../../actions/message';
 
 
 export class Form extends Component {
-    state = {
-        name: '',
-        email: '',
-        message: ''
-    }
+  state = {
+    name: '',
+    email: '',
+    message: ''
+  }
 
-    onChange = e => this.setState({
-        [e.target.name]: e.target.value
-    })
+  onChange = e => this.setState({
+    [e.target.name]: e.target.value
+  })
 
-    onSubmit = e => {
-        e.preventDefault();
-        const { name, email, message } = this.state;
-        const message_ = { name, email, message };
-        this.props.addMessage(message_);
-    }
+  onSubmit = e => {
+    e.preventDefault();
+    const { name, email, message } = this.state;
+    const message_ = { name, email, message };
+    this.props.addMessage(message_);
+  }
 
-    static propTypes = {
-        addMessage: PropTypes.func.isRequired,
-    }
+  static propTypes = {
+    addMessage: PropTypes.func.isRequired,
+  }
 
-    render() {
-        const { name, email, message } = this.state;
-        return (
-            
-            <div className="card card-body mt-4 mb-4">
-                <h2>Add Lead</h2>
-                <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                    <label>Name</label>
-                    <input
-                    className="form-control"
-                    type="text"
-                    name="name"
-                    onChange={this.onChange}
-                    value={name}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input
-                    className="form-control"
-                    type="email"
-                    name="email"
-                    onChange={this.onChange}
-                    value={email}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Message</label>
-                    <textarea
-                    className="form-control"
-                    type="text"
-                    name="message"
-                    onChange={this.onChange}
-                    value={message}
-                    />
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
-                    Submit
+  render() {
+    const { name, email, message } = this.state;
+    return (
+
+      <div className="card card-body mt-4 mb-4">
+        <h2>Add Message</h2>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label>Name</label>
+            <input
+              className="form-control"
+              type="text"
+              name="name"
+              onChange={this.onChange}
+              value={name}
+            />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              onChange={this.onChange}
+              value={email}
+            />
+          </div>
+          <div className="form-group">
+            <label>Message</label>
+            <textarea
+              className="form-control"
+              type="text"
+              name="message"
+              onChange={this.onChange}
+              value={message}
+            />
+          </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary">
+              Submit
                     </button>
-                </div>
-                </form>
-            </div>
-        )
-    }
+          </div>
+        </form>
+      </div>
+    )
+  }
 }
 
 export default connect(null, { addMessage })(Form);

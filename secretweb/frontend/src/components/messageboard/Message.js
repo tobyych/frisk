@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getMessage } from '../../actions/message'
+import messageboard from '../../reducers/messageboard';
 
 export class Message extends Component {
   static propTypes = {
@@ -26,6 +27,17 @@ export class Message extends Component {
               <th />
             </tr>
           </thead>
+          <tbody>
+            {this.props.message.map(messageboard => (
+              <tr key={messageboard.id}>
+                <td>{messageboard.id}</td>
+                <td>{messageboard.name}</td>
+                <td>{messageboard.email}</td>
+                <td>{messageboard.message}</td>
+                <td><button className="btn btn-danger btn-sm">Delete</button></td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </Fragment>
     )

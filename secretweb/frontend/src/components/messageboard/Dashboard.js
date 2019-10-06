@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
-import From from './Form';
+import Form from './Form';
 import Message from './Message';
 
 
 export default function Dashboard() {
   return (
     <Fragment>
-      <Form>
-        
-      </Form>
+      <Form />
+      <Message />
     </Fragment>
   )
 }

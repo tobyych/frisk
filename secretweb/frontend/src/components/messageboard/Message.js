@@ -6,7 +6,9 @@ import messageboard from '../../reducers/messageboard';
 
 export class Message extends Component {
   static propTypes = {
-    message: PropTypes.array.isRequired
+    message: PropTypes.array.isRequired,
+    getMessage: PropTypes.func.isRequired,
+    deleteMessage: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -28,13 +30,18 @@ export class Message extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.message.map(messageboard => (
-              <tr key={messageboard.id}>
-                <td>{messageboard.id}</td>
-                <td>{messageboard.name}</td>
-                <td>{messageboard.email}</td>
-                <td>{messageboard.message}</td>
-                <td><button className="btn btn-danger btn-sm">Delete</button></td>
+            {this.props.message.map(message => (
+              <tr key={message.id}>
+                <td>{message.id}</td>
+                <td>{message.name}</td>
+                <td>{message.email}</td>
+                <td>{message.message}</td>
+                <td>
+                  <button onClick={this.props.deleteMessage.bind(this, message.id)} className="btn btn-danger btn-sm">
+                    {" "}
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -48,4 +55,7 @@ const mapStateToProps = state => ({
   message: state.message.message // first message: message reducer, second: message
 })
 
-export default connect(mapStateToProps, { getMessage })(Message);
+export default connect(
+  mapStateToProps,
+  { getMessage, deleteMessage }
+)(Message);

@@ -8,7 +8,7 @@ export class Header extends Component {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a className="navbar-brand" href="#">Secret Web</a>
+          <a className="navbar-brand" href="#">Personal Website</a>
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
 
           </ul>

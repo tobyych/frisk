@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getMessage, deleteMessage } from '../../actions/message'
-import message from '../../reducers/message';
+import { getMessage, deleteMessage } from '../../actions/messages';
 
 export class Message extends Component {
   static propTypes = {
-    message: PropTypes.array.isRequired,
+    messages: PropTypes.array.isRequired,
     getMessage: PropTypes.func.isRequired,
     deleteMessage: PropTypes.func.isRequired
   }
@@ -30,7 +29,7 @@ export class Message extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.message.map(message => (
+            {this.props.messages.map(message => (
               <tr key={message.id}>
                 <td>{message.id}</td>
                 <td>{message.name}</td>
@@ -52,7 +51,7 @@ export class Message extends Component {
 }
 
 const mapStateToProps = state => ({
-  message: state.message.message // first message: message reducer, second: message
+  messages: state.messages.messages // first message: message reducer, second: message
 })
 
 export default connect(

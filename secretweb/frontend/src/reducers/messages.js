@@ -1,25 +1,25 @@
-import { GET_MESSAGE, DELETE_MESSAGE, ADD_MESSAGE } from '../actions/types.js';
+import { GET_MESSAGES, DELETE_MESSAGE, ADD_MESSAGE } from '../actions/types.js';
 
 const initialState = {
-  message: []
+  messages: []
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_MESSAGE:
+    case GET_MESSAGES:
       return {
         ...state,
-        message: action.payload
+        messages: action.payload
       }
     case DELETE_MESSAGE:
       return {
         ...state,
-        message: state.message.filter(message => message.id !== action.payload)
+        messages: state.messages.filter(message => message.id !== action.payload)
       };
     case ADD_MESSAGE:
       return {
         ...state,
-        message: [...state.message, action.payload]
+        messages: [...state.messages, action.payload]
       }
     default:
       return state;

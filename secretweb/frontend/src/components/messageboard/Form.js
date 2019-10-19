@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import { addMessage } from '../../actions/message';
+import { addMessage } from '../../actions/messages';
 
 
 export class Form extends Component {
@@ -20,6 +20,11 @@ export class Form extends Component {
     const { name, email, message } = this.state;
     const message_ = { name, email, message };
     this.props.addMessage(message_);
+    this.setState({
+      name: "",
+      email: "",
+      message: ""
+    })
   }
 
   static propTypes = {

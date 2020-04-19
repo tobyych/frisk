@@ -9,3 +9,6 @@ python3.6 -m pip install pipenv
 
 pipenv install
 pipenv shell
+
+# Add external ip to secretweb/secretweb/settings.py
+# ALLOWED_HOST variable
